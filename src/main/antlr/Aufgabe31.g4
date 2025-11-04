@@ -5,7 +5,7 @@ grammar Aufgabe31;
 program :  statement* EOF ;
 
 // while und if
-while   :  'while' expr 'do' statement+ NEWLINE;
+while   :  'while' expr 'do' statement+;
 condition : 'if' expr 'do' statement+ ('else do' statement+)? 'end' ;
 // Variablen (ohne typen wie in dem Beispiel)
 vardec  :  ID (ASSIGN expr)?;
@@ -21,9 +21,9 @@ idOrNum : ID
     | '(' expr ')' // fuer Klammern , zb 1 + (2 * 3)
     ;
 
-statement:  vardec NEWLINE?
-    |  assign NEWLINE?
-    |  expr NEWLINE?
+statement:  vardec
+    |  assign
+    |  expr
     |  while
     |  condition
     ;

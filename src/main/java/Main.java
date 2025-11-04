@@ -16,7 +16,6 @@ public class Main {
 
     // Einlesen über Konsole/Prompt
     String input = IO.readln("expr?> ");
-    input += "\n";
 
     //HelloLexer lexer = new HelloLexer(CharStreams.fromString(input));
     //CommonTokenStream tokens = new CommonTokenStream(lexer);
