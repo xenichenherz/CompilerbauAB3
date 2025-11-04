@@ -16,14 +16,19 @@ public class Main {
 
     // Einlesen über Konsole/Prompt
     String input = IO.readln("expr?> ");
+    input += "\n";
 
-    HelloLexer lexer = new HelloLexer(CharStreams.fromString(input));
+    //HelloLexer lexer = new HelloLexer(CharStreams.fromString(input));
+    //CommonTokenStream tokens = new CommonTokenStream(lexer);
+    //HelloParser parser = new HelloParser(tokens);
+
+    Aufgabe31Lexer lexer = new Aufgabe31Lexer(CharStreams.fromString(input));
     CommonTokenStream tokens = new CommonTokenStream(lexer);
-    HelloParser parser = new HelloParser(tokens);
+    Aufgabe31Parser parser = new Aufgabe31Parser(tokens);
 
-    ParseTree tree = parser.start(); // Start-Regel
+    ParseTree tree = parser.program(); // Start-Regel
     IO.println(tree.toStringTree(parser));
-
+/*
     // Einlesen über den Classpath
     IO.readln("enter?> ");
     try (InputStream in = Main.class.getResourceAsStream("/cpp/vars.cpp")) {
@@ -37,6 +42,6 @@ public class Main {
     URL url = Main.class.getResource("/cpp/expr.cpp");
     String txt = Files.readString(Path.of(url.toURI()), StandardCharsets.UTF_8);
     IO.println("\n\n/cpp/expr.cpp");
-    IO.println(txt);
+    IO.println(txt);*/
   }
 }
